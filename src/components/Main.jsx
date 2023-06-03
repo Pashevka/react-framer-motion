@@ -7,8 +7,9 @@ const Main = () => {
       <div className="container">
         <About />
         <Services />
+        <About />
         <Services />
-        <Services />
+        <About />
         <Services />
       </div>
     </main>
