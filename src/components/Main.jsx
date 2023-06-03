@@ -7,6 +7,9 @@ const Main = () => {
       <div className="container">
         <About />
         <Services />
+        <Services />
+        <Services />
+        <Services />
       </div>
     </main>
   )

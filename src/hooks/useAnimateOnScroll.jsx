@@ -5,18 +5,18 @@ export const useAnimateOnScroll = (inView) => {
   const parentRef = useRef(null)
   const control = useAnimation()
 
-  const isInView = useInView(parentRef, {
-    once: false,
+  const isInViewWhenScrollDown = useInView(parentRef, {
+    once: true,
     amount: inView,
   })
 
   useEffect(() => {
-    if (isInView) {
+    if (isInViewWhenScrollDown) {
       control.start("visible")
     } else {
       control.start("hidden")
     }
-  }, [isInView, control])
+  }, [isInViewWhenScrollDown, control])
 
   return {
     parentRef,
