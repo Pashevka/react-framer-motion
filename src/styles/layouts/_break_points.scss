@@ -1,0 +1,99 @@
+$break-points: (
+  mbl: 767px,
+  mbl-min: 370px,
+  default-768: 768px,
+  default-1000: 1000px,
+  default-1200: 1200px,
+  default-350: 350px,
+  default-1130: 1130px,
+  ) !default; // !default: pass dynamic values on runtime
+
+// for regular media queries : max-width
+@mixin media-max($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin mbl {
+  @include media-max(map-get($break-points, "mbl")) {
+    @content;
+  }
+}
+
+// for regular media queries : min-width
+@mixin default-768-mixin($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin default-768 {
+  @include default-768-mixin(map-get($break-points, "default-768")) {
+    @content;
+  }
+}
+
+// for regular media queries : max-width
+@mixin default-1000-mixin($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin default-1000 {
+  @include default-1000-mixin(map-get($break-points, "default-1000")) {
+    @content;
+  }
+}
+
+// for regular media queries : max-width
+@mixin default-1200-mixin($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin default-1200 {
+  @include default-1200-mixin(map-get($break-points, "default-1200")) {
+    @content;
+  }
+}
+
+// for regular media queries : max-width
+@mixin media-mbl-min($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin mbl-min {
+  @include media-mbl-min(map-get($break-points, "mbl-min")) {
+    @content;
+  }
+}
+
+// for regular media queries : max-width
+@mixin default-350-mixin($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin default-350 {
+  @include default-350-mixin(map-get($break-points, "default-350")) {
+    @content;
+  }
+}
+
+@mixin default-1130-mixin($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin default-1130 {
+  @include default-1130-mixin(map-get($break-points, "default-1130")) {
+    @content;
+  }
+}

@@ -1,0 +1,7 @@
+@use "../common/variables";
+
+.portfolio-wrapper {
+  background-color: variables.$color-green;
+  margin-top: 5rem;
+  padding: 3rem 0 6rem 0;
+}

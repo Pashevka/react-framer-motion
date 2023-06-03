@@ -1,0 +1,143 @@
+@use "../common/variables";
+@use "../common/cta";
+@use "../common/common_styles";
+@use "../layouts/break_points";
+
+.hero-wrapper {
+  background-color: variables.$color-pink;
+}
+
+.hero {
+  padding-top: 4rem;
+  max-width: 824px;
+  margin: 0 auto;
+  text-align: center;
+
+  @include break_points.default-1130 {
+    margin-top: 3.5rem;
+  }
+
+  @include break_points.mbl {
+    padding: 4rem 0.5rem 0 0.5rem;
+  }
+
+  &__upper {
+    position: relative;
+
+    &>span {
+      position: absolute;
+
+      &:nth-child(1) {
+        top: 1.9em;
+        left: -9em;
+
+        @include break_points.default-1200 {
+          left: -1em;
+        }
+
+        @include break_points.mbl {
+          top: 3em;
+          left: 1em !important;
+        }
+      }
+
+      &:nth-child(2) {
+        bottom: 6.5em;
+        left: -5.5em;
+
+        @include break_points.mbl {
+          bottom: 0.7em;
+          left: 3em !important;
+        }
+
+        @include break_points.default-1200 {
+          left: -1em;
+        }
+      }
+
+      &:nth-child(3) {
+        top: 1.5em;
+        right: -5.5em;
+
+        @include break_points.mbl {
+          top: 4.7em;
+          right: 2.8em !important;
+        }
+
+        @include break_points.default-1200 {
+          right: 1em;
+        }
+      }
+
+      &:nth-child(4) {
+        right: -10.2em;
+        bottom: 5.5em;
+
+        @include break_points.mbl {
+          right: 1.2em !important;
+          bottom: -1.2em;
+        }
+
+        @include break_points.default-1200 {
+          right: 1em;
+        }
+      }
+    }
+
+    &>h2 {
+      @extend %common-heading-1;
+      @include variables.font-poppins(700);
+
+      &>span {
+        display: block;
+        position: relative;
+
+        &>span {
+          position: absolute;
+          bottom: -0.6em;
+          right: 1.8em;
+
+          @include break_points.mbl {
+            right: unset;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+
+  &__lower {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.8rem;
+    justify-content: center;
+
+    @include break_points.mbl {
+      margin-top: 4.5rem;
+      gap: 0.5rem;
+    }
+
+    @include break_points.mbl-min {
+      flex-direction: column;
+      gap: 2.5rem
+    }
+
+    .hero-cta {
+      @extend %common-hover;
+
+      &>a {
+        text-transform: uppercase;
+        @include cta.makeCta(1.125rem,
+          variables.$color-yellow,
+          variables.$color-dark-black,
+          600,
+          variables.$border-radius-30px,
+          1.188rem 4.9rem,
+          0.8rem 2rem,
+          0.875rem)
+      }
+    }
+  }
+}

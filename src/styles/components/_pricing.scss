@@ -1,0 +1,139 @@
+@use "../common/variables";
+@use "../common/common_styles";
+@use "../layouts/break_points";
+
+.pricing {
+  padding: 2rem;
+  background-color: variables.$color-pink;
+  border-radius: variables.$border-radius-20px;
+  margin-top: 5rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  overflow: hidden;
+
+  @include break_points.default-1200 {
+    grid-auto-flow: row;
+    grid-template-columns: unset;
+  }
+
+  @include break_points.mbl {
+    margin: 5rem 1rem 0 1rem;
+    gap: 2.5rem;
+  }
+
+  &__upper {
+    padding: 3rem 2rem;
+    background-color: variables.$color-green;
+    border-radius: variables.$border-radius-20px;
+    min-width: 446px;
+
+    @include break_points.default-1200 {
+      min-width: unset;
+      text-align: center;
+    }
+
+    &__heading {
+      color: variables.$color-black;
+      font-size: 3.125rem;
+      @include variables.font-poppins(600);
+      text-transform: uppercase;
+
+      @include break_points.mbl {
+        font-size: 1.875rem;
+      }
+    }
+
+    &__para {
+      font-size: 1.375rem;
+      color: variables.$color-black;
+      @include variables.font-poppins(500);
+      margin-top: 1rem;
+
+      @include break_points.mbl {
+        margin-top: 3rem;
+        font-size: 1rem;
+      }
+    }
+
+    &__price {
+      color: variables.$color-black;
+      font-size: 2.625rem;
+      @include variables.font-poppins(700);
+      margin-top: 4rem;
+
+      @include break_points.mbl {
+        margin-top: 3rem;
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  &__lower {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include break_points.default-1200 {
+      row-gap: 3rem;
+    }
+
+    @include break_points.mbl {
+      max-width: 235px;
+      margin: 0 auto;
+    }
+
+    &__services {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: 1fr 11fr;
+      align-items: center;
+      gap: 1.125rem;
+
+      &:nth-child(odd) {
+        flex-basis: 54%;
+      }
+
+      &:nth-child(even) {
+        flex-basis: 46%;
+        padding-left: 1rem;
+      }
+
+      @mixin changeOrder($n, $order) {
+        &:nth-child(#{$n}) {
+          order: $order;
+        }
+      }
+
+      @include break_points.mbl {
+
+        &:nth-child(odd),
+        &:nth-child(even) {
+          flex-basis: 100%;
+          padding: 0;
+        }
+
+        @include changeOrder(1, 1);
+        @include changeOrder(3, 2);
+        @include changeOrder(5, 3);
+        @include changeOrder(2, 4);
+        @include changeOrder(4, 5);
+        @include changeOrder(6, 6);
+        @include changeOrder(7, 7);
+        @include changeOrder(8, 8);
+        @include changeOrder(9, 9);
+        @include changeOrder(10, 10);
+      }
+
+      &__text {
+        font-size: 1.375rem;
+        color: variables.$color-black;
+        @include variables.font-poppins(500);
+
+        @include break_points.mbl {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

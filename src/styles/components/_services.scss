@@ -1,0 +1,51 @@
+@use "../common/variables";
+@use "../common/common_styles";
+@use "../layouts/break_points";
+
+.services {
+  margin-top: 5rem;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  color: variables.$color-dark-black;
+  padding: 0 1.2rem;
+  display: grid;
+  grid-auto-flow: column;
+  overflow: hidden;
+
+  @include break_points.default-1000 {
+    grid-auto-flow: row;
+    grid-template-columns: unset !important;
+  }
+
+  @include break_points.default-1000 {
+    text-align: center;
+  }
+
+  &__upper {
+    @include break_points.default-1000 {
+      order: 2;
+    }
+  }
+
+  &__lower {
+    width: 0;
+
+    @include break_points.default-1000 {
+      order: 1;
+      margin-bottom: 5rem;
+      width: auto;
+    }
+
+    &>h2 {
+      @extend %common-heading-1;
+      @include variables.font-poppins(600);
+      transform: rotate(90deg) translateY(1.25em);
+      width: max-content;
+
+      @include break_points.default-1000 {
+        transform: rotate(0) translateY(0);
+        margin: auto;
+      }
+    }
+  }
+}

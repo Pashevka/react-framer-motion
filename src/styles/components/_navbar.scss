@@ -1,0 +1,175 @@
+@use "../common/variables";
+@use "../common/cta";
+@use "../common/common_styles";
+@use "../layouts/break_points";
+
+%common-nav-styles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+
+  &>a {
+    font-size: 1.125rem;
+    text-decoration: none;
+    color: variables.$color-dark-black;
+    text-transform: uppercase;
+    @include variables.font-poppins(600);
+    cursor: pointer;
+
+    &:hover {
+      color: variables.$color-red;
+    }
+  }
+}
+
+%common-nav-cta-styles {
+  text-align: right;
+  text-transform: uppercase;
+
+  &>.nav-cta {
+    @extend %common-hover;
+
+    &>a {
+
+      @include cta.makeCta(1.125rem,
+        variables.$color-yellow,
+        variables.$color-dark-black,
+        600,
+        variables.$border-radius-30px,
+        1rem 2.568rem,
+        1rem 2rem,
+        1rem);
+    }
+  }
+}
+
+.nav-wrapper {
+  border-bottom: 0.156rem solid variables.$color-black;
+
+  @include break_points.default-1130 {
+    right: 0;
+    left: 0;
+    background-color: variables.$color-pink;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
+}
+
+.navbar {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: 0.6rem 0;
+
+  @include break_points.default-1130 {
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+  }
+
+  &__hamburger {
+    text-align: right;
+    transform: translateY(2px);
+  }
+
+  &__logo {
+    text-align: left;
+
+    @include break_points.mbl {
+      height: 40px;
+      display: flex;
+    }
+
+    @include break_points.default-768 {
+      margin-left: -1rem;
+    }
+
+    &>a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &>span {
+
+        &:first-of-type {
+
+          @include break_points.mbl {
+            margin-left: -1rem;
+          }
+        }
+      }
+    }
+
+    &__text {
+      font-size: 1.563rem;
+      @include variables.font-poppins(700);
+      color: variables.$color-dark-black;
+      text-transform: uppercase;
+
+      @include break_points.mbl {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  &__nav {
+    @extend %common-nav-styles;
+  }
+
+  &__cta {
+    @extend %common-nav-cta-styles;
+  }
+}
+
+.nav-mbl-wrapper {
+  position: fixed;
+  top: 4.65em;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: variables.$color-green;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 5rem;
+  gap: 5rem;
+  // animation: active-nav 0.3s;
+
+  @keyframes active-nav {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+      visibility: hidden;
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+      visibility: visible;
+    }
+  }
+}
+
+.nav-mbl-active {
+  opacity: 1;
+  visibility: visible
+}
+
+.nav-mbl {
+  @extend %common-nav-styles;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+
+  &>a {
+    width: 100%;
+  }
+}
+
+.nav-mbl-cta {
+  @extend %common-nav-cta-styles;
+}

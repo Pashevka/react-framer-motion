@@ -1,0 +1,20 @@
+@use "./variables";
+@use "../layouts/break_points";
+
+.outer-container {
+  width: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @include break_points.default-768 {
+    padding: 0 1rem;
+  }
+}
+
+.app-bg {
+  background-color: variables.$color-pink;
+  padding-bottom: 7rem;
+}

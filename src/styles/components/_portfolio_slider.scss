@@ -1,0 +1,94 @@
+@use "../common/variables";
+@use "../common/common_styles";
+@use "../layouts/break_points";
+
+.portfolio-slider {
+
+  &__upper {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    &__heading {
+
+      &>span {
+        @extend %common-heading-1;
+        @include variables.font-poppins(600);
+        -webkit-text-stroke: 2px;
+        -webkit-text-fill-color: variables.$color-green;
+      }
+    }
+  }
+
+  &__arrow-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+
+    &>span {
+      cursor: pointer;
+    }
+  }
+
+  &__lower {
+
+    @include break_points.mbl {
+      text-align: center
+    }
+
+    @include break_points.default-350 {
+      transform: translateX(-2em);
+    }
+
+    &__grp {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.5rem;
+
+      &>div {
+        transform: scale(0.85);
+        transition: all 0.2s ease-in;
+        pointer-events: none;
+
+        &:hover {
+          transform: scale(1.05) !important;
+        }
+
+
+        &.active-slide {
+          transform: scale(1);
+          pointer-events: all;
+        }
+      }
+    }
+  }
+
+  &__tip {
+    text-align: center;
+
+    &>span {
+      font-size: 0.875rem;
+      color: variables.$color-dark-black;
+      @include variables.font-poppins(400);
+    }
+
+    @include break_points.mbl {
+      margin-top: 1rem;
+      max-width: 300px;
+      margin: 3rem auto 3rem auto;
+    }
+  }
+}
+
+.slick-slide {
+  transform: scale(0.85);
+  pointer-events: none;
+  transition: transform 0.7s linear;
+}
+
+.slick-center {
+  transform: scale(1);
+  pointer-events: all;
+}

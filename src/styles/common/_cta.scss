@@ -1,0 +1,36 @@
+@use "./variables";
+@use "../layouts/break_points";
+
+.cta-reset {
+  all: unset;
+}
+
+@mixin makeCta($font-size,
+  $bg-color,
+  $text-color,
+  $font-weight,
+  $border-radius,
+  $padding,
+  $padding-mbl,
+  $font-mbl) {
+  font-size: $font-size;
+  background-color: $bg-color;
+  color: $text-color;
+  @include variables.font-poppins($font-weight);
+  border-radius: $border-radius;
+  padding: $padding;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include break_points.mbl {
+    padding: $padding-mbl;
+    font-size: $font-mbl;
+  }
+}
+
+.cta-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}

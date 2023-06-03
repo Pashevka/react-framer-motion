@@ -1,0 +1,171 @@
+@use "../common/variables";
+@use "../common/cta";
+@use "../common/common_styles";
+@use "../layouts/break_points";
+
+.footer {
+  margin-top: 7rem;
+  background-color: variables.$color-green;
+  border-radius: variables.$border-radius-20px;
+  padding: 2rem 8rem;
+  overflow: hidden;
+
+  @include break_points.default-1000 {
+    padding: 2rem 5rem;
+  }
+
+  @include break_points.mbl {
+    margin: 5rem 1rem 0 1rem;
+    padding: 3rem 1.5rem 4rem 1.5rem;
+  }
+
+  &__upper {
+
+    &__heading {
+      @extend %common-heading-1;
+      @include variables.font-poppins(600)
+    }
+
+    &__cta {
+      margin-top: 2rem;
+      text-transform: uppercase;
+
+      .footer-cta {
+        @extend %common-hover;
+
+        &>a {
+          @include cta.makeCta(2.813rem,
+            variables.$color-yellow,
+            variables.$color-dark-black,
+            600,
+            variables.$border-radius-50px,
+            0.91rem 5.02rem,
+            0.7rem 2.1rem 0.7rem 3.2rem,
+            1.563rem);
+
+          @include break_points.default-350 {
+            padding: 0.7rem 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__lower {
+    margin-top: 5rem;
+    grid-template-columns: repeat(3, 1fr);
+    @extend %common-grid;
+
+    %common-heading-styles {
+      font-size: 1.563rem;
+      color: variables.$color-dark-black;
+      text-transform: uppercase;
+      @include variables.font-poppins(700);
+
+      @include break_points.mbl {
+        font-size: 1.375rem;
+      }
+    }
+
+    %common-text-styles {
+      font-size: 1.25rem;
+      color: variables.$color-dark-black;
+      @include variables.font-poppins(500);
+    }
+
+    &__social {
+
+      &__heading {
+        @extend %common-heading-styles;
+      }
+
+      &__icons {
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        &>a {
+          @extend %common-hover;
+        }
+
+        @include break_points.mbl {
+          margin-top: 2rem;
+        }
+      }
+
+      &__copyright {
+        margin-top: 1rem;
+        @extend %common-text-styles;
+
+        @include break_points.mbl {
+          margin-top: 2rem;
+        }
+      }
+    }
+
+    &__nav {
+
+      @include break_points.mbl {
+        margin-top: 5rem;
+      }
+
+      &__heading {
+        @extend %common-heading-styles;
+      }
+
+      &__nav-links {
+        margin-top: 0.5rem;
+
+        @include break_points.mbl {
+          margin-top: 2rem;
+        }
+
+        &>ul {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 1.2rem;
+
+          a {
+            @extend %common-text-styles;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+              color: variables.$color-white;
+            }
+          }
+        }
+      }
+    }
+
+    &__scroll-top {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      @include break_points.mbl {
+        justify-content: flex-start;
+        margin-top: 5rem;
+      }
+
+      &>p {
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: variables.$color-white;
+        border-radius: 50%;
+        cursor: pointer;
+        @extend %common-hover;
+
+        @include break_points.mbl {
+          width: 3.75rem;
+          height: 3.75rem;
+        }
+      }
+    }
+  }
+}

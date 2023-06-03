@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+// fonts
+$font-poppins: (
+  font-poppins-300: (font-family: ('Poppins', sans-serif),
+    font-weight: 300,
+  ),
+  font-poppins-400: (font-family: ('Poppins', sans-serif),
+    font-weight: 400,
+  ),
+  font-poppins-500: (font-family: ('Poppins', sans-serif),
+    font-weight: 500,
+  ),
+  font-poppins-600: (font-family: ('Poppins', sans-serif),
+    font-weight: 600,
+  ),
+  font-poppins-700: (font-family: ('Poppins', sans-serif),
+    font-weight: 700,
+  ),
+);
+
+@mixin font-poppins($weight) {
+  $font-properties: map-get($font-poppins, font-poppins-#{$weight});
+  font-family: map-get($font-properties, font-family);
+  font-weight: map-get($font-properties, font-weight);
+}
+
+// colors
+$color-yellow: #FFFF76;
+$color-dark-black: #17161C;
+$color-green: #9BC385;
+$color-black: #000000;
+$color-pink: #F0D6BF;
+$color-white: #FFFFFF;
+$color-red: #B22427;
+
+// border-radius
+$border-radius-20px: 20px;
+$border-radius-30px: 30px;
+$border-radius-50px: 50px;

@@ -1,0 +1,39 @@
+@use "./variables";
+@use "../layouts/break_points";
+
+%common-hover {
+  transition: transform 0.2s ease-in;
+
+  &:hover {
+    transform: scale(1.07);
+  }
+}
+
+%common-heading-1 {
+  font-size: 4.375rem;
+  color: variables.$color-dark-black;
+  text-transform: uppercase;
+
+  @include break_points.mbl {
+    font-size: 2.5rem;
+  }
+}
+
+%common-grid {
+  display: grid;
+  grid-auto-flow: column;
+
+  @include break_points.mbl {
+    grid-auto-flow: row;
+    grid-template-columns: unset !important;
+  }
+}
+
+%common-heading-2 {
+  font-size: 3.125rem;
+  @include variables.font-poppins(600);
+
+  @include break_points.mbl {
+    font-size: 1.875rem;
+  }
+}

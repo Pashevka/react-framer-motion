@@ -1,0 +1,24 @@
+// common
+@use "./common/containers";
+@use "./common/variables";
+@use "./common/reset";
+@use "./common/cta";
+@use "./common/service";
+@use "./common/common_styles";
+
+// components
+@use "./components/navbar";
+@use "./components/hero";
+@use "./components/about";
+@use "./components/services";
+@use "./components/portfolio";
+@use "./components/portfolio_slider";
+@use "./components/footer";
+@use "./components/pricing";
+
+// layouts  
+@use "./layouts/break_points";
+
+// slider
+@use "./slick-carousel/slick/slick-theme.css";
+@use "./slick-carousel/slick/slick.css";
